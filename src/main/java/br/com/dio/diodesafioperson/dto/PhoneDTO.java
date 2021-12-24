@@ -1,4 +1,4 @@
-package br.com.dio.diodesafioperson.dto.request;
+package br.com.dio.diodesafioperson.dto;
 
 import br.com.dio.diodesafioperson.enums.PhoneType;
 import lombok.AllArgsConstructor;
