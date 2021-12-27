@@ -12,10 +12,21 @@ public class PhoneService {
     //conversão DTO para Entity
     public Phone conversaoPhoneEntity(PhoneDTO phoneDTO, Phone phoneEntity){
 
+        phoneEntity.setId(phoneDTO.getId());
         phoneEntity.setType(phoneDTO.getType());
         phoneEntity.setNumber(phoneDTO.getNumber());
 
         return phoneEntity;
+    }
+
+    //conversão Entity para DTO
+    public PhoneDTO conversaoPhoneDTO(Phone phoneEntity, PhoneDTO phoneDTO){
+
+        phoneDTO.setId(phoneEntity.getId());
+        phoneDTO.setType(phoneEntity.getType());
+        phoneDTO.setNumber(phoneEntity.getNumber());
+
+        return phoneDTO;
     }
 
     //conversão ListaDTO para ListaEntity
@@ -29,6 +40,19 @@ public class PhoneService {
         }
 
         return phoneEntities;
+    }
+
+    //conversão ListaDTO para ListaEntity
+    public List<PhoneDTO> conversaoPhoneDTO(List<Phone> phoneEntities, List<PhoneDTO> phoneDTOs){
+
+        for(Phone phoneEntity : phoneEntities){
+            PhoneDTO phoneDTO = new PhoneDTO();
+            phoneDTO = conversaoPhoneDTO(phoneEntity, phoneDTO);
+
+            phoneDTOs.add(phoneDTO);
+        }
+
+        return phoneDTOs;
     }
 
 }
